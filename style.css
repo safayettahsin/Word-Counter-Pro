@@ -1,0 +1,199 @@
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: background 0.3s ease;
+  color: #333;
+}
+
+/* Container */
+.container {
+  background-color: #ffffff;
+  padding: 30px;
+  max-width: 650px;
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Top bar with title and toggle */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 28px;
+}
+
+/* Dark Mode Toggle Button */
+#dark-mode-toggle {
+  font-size: 22px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: transform 0.2s ease;
+  user-select: none;
+  color: #764ba2;
+}
+
+#dark-mode-toggle:hover {
+  transform: rotate(20deg);
+}
+
+/* Text Area */
+textarea {
+  width: 100%;
+  height: 200px;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1.5px solid #ccc;
+  resize: vertical;
+  transition: border 0.3s;
+  font-family: inherit;
+  color: #333;
+  background-color: #fff;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #764ba2;
+}
+
+/* Buttons container */
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.buttons button {
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(45deg, #764ba2, #667eea);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.buttons button:hover {
+  background: linear-gradient(45deg, #5a3e9e, #5468d6);
+  box-shadow: 0 8px 20px rgba(84, 104, 214, 0.6);
+}
+
+/* Stats */
+.stats {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  flex: 1 1 120px;
+  text-align: center;
+  background: #f0f0f7;
+  padding: 12px 15px;
+  border-radius: 12px;
+  box-shadow: inset 0 0 5px #ddd;
+  transition: background 0.3s ease;
+}
+
+.label {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #764ba2;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background: #121212;
+  color: #ddd;
+}
+
+body.dark-mode .container {
+  background-color: #1e1e1e;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode textarea {
+  background-color: #2a2a2a;
+  color: #eee;
+  border-color: #555;
+}
+
+body.dark-mode textarea:focus {
+  border-color: #bb86fc;
+}
+
+body.dark-mode .buttons button {
+  background: linear-gradient(45deg, #bb86fc, #3700b3);
+  box-shadow: 0 5px 15px rgba(187, 134, 252, 0.6);
+  color: white;
+}
+
+body.dark-mode .buttons button:hover {
+  background: linear-gradient(45deg, #9a68e8, #32007f);
+  box-shadow: 0 8px 20px rgba(154, 104, 232, 0.8);
+}
+
+body.dark-mode .stat {
+  background: #2c2c2c;
+  box-shadow: inset 0 0 5px #444;
+}
+
+body.dark-mode .value {
+  color: #bb86fc;
+}
+
+body.dark-mode #dark-mode-toggle {
+  color: #bb86fc;
+}
+
+
+
