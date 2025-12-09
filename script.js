@@ -7,7 +7,8 @@ const darkModeToggle = document.getElementById('dark-mode-toggle');
 const exportBtn = document.getElementById('export-btn');
 const clearBtn = document.getElementById('clear-btn');
 
-const WPM_AVERAGE = 200;
+const WPM_AVERAGE = 185;
+const CPM_AVERAGE = 850; // Characters per minute
 
 // Optional: typing sound effect setup
 const typingSound = new Audio('https://actions.google.com/sounds/v1/keyboard/keyboard_typing_click.ogg');
@@ -36,8 +37,12 @@ function updateStats() {
   wordCount.classList.add('highlight');
   setTimeout(() => wordCount.classList.remove('highlight'), 300);
 
-  // Reading time in minutes, rounded up
-  const timeMinutes = words > 0 ? Math.ceil(words / WPM_AVERAGE) : 0;
+  // Reading time based on both words and characters
+  // Use the metric that gives the longer reading time (more conservative estimate)
+  const timeFromWords = words > 0 ? Math.ceil(words / WPM_AVERAGE) : 0;
+  const timeFromChars = text.length > 0 ? Math.ceil(text.length / CPM_AVERAGE) : 0;
+  const timeMinutes = Math.max(timeFromWords, timeFromChars);
+  
   readingTime.textContent = `${timeMinutes} min`;
 }
 
